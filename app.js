@@ -48,8 +48,8 @@ function formatUnixTimeWithOffset(unixTime, timezoneOffsetSeconds) {
  */
 async function getTimeFromTimeZoneDB(lat, lon) {
     try {
-        // ======================== timezonedb.com Api key  https://timezonedb.com/account========================
-        const apikey = "your api"
+        // ======================== timezonedb.com API key  https://timezonedb.com/account========================
+        const apikey = "your API key"
         // สร้าง URL ด้วยพิกัดเมืองและ API Key
         const apiUrl = `https://api.timezonedb.com/v2.1/get-time-zone?key=${apikey}&format=json&by=position&lat=${lat}&lng=${lon}`;
 
@@ -77,8 +77,8 @@ async function getWeatherData(city) {
         // เรียกข้อมูลอากาศจาก OpenWeather
         const params = new URLSearchParams({
             units: "metric",
-            // ======================== openweathermap.org Api key https://home.openweathermap.org/api_keys========================
-            appid: "your api",
+            // ======================== openweathermap.org API key https://home.openweathermap.org/api_keys========================
+            appid: "your API key",
             q: city
         });
 
