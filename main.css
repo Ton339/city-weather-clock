@@ -1,0 +1,274 @@
+/* นำเข้าฟอนต์ Roboto จาก Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --font-family: 'Roboto', sans-serif;
+    /* ตั้งค่าตัวแปรฟอนต์ */
+}
+
+/* รีเซ็ต CSS พื้นฐาน */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    /* ใช้ฟอนต์หลัก */
+}
+
+/* สไตล์ body */
+body {
+    margin: 0;
+    height: 100vh;
+    /* ความสูงเต็มหน้าจอ */
+    display: flex;
+    justify-content: center;
+    /* จัดกลางแนวนอน */
+    align-items: center;
+    /* จัดกลางแนวตั้ง */
+    background: #010014;
+    /* สีพื้นหลัง */
+}
+
+/* การ์ดหลัก */
+.card {
+    border: #FFFFFF 3px solid;
+    border-radius: 12px;
+    padding: 1.5rem 1rem 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+/* ส่วนค้นหา */
+.search-tab {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+/* Input field และป้ายชื่อ */
+.input-container {
+    position: relative;
+    /* สำหรับ positioning แบบสัมพัทธ์ */
+    flex-grow: 1;
+}
+
+
+.search-input {
+    width: 100%;
+    height: 35px;
+    border: 2px solid #CCCCCC;
+    background-color: #010014;
+    border-radius: 10px;
+    padding: 10px 15px 5px 15px;
+    font-size: 16px;
+    color: white;
+}
+
+/* ป้ายชื่อแบบลอยได้ */
+.floating-label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7F7F7F;
+    pointer-events: none;
+    /* ป้องกันการคลิก */
+    transition: 0.2s ease all;
+    background-color: #010014;
+    padding: 0 5px;
+    font-size: 16px;
+}
+
+/* เมื่อ input ถูก focus หรือมีค่า */
+.search-input:focus+.floating-label,
+.search-input:not(:placeholder-shown):valid+.floating-label {
+    top: -3.5px;
+    transform: translateY(0.85) scale(0.85);
+    color: #CCCCCC;
+    font-size: 14px;
+}
+
+
+.icon {
+    background: #010014;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    border: 2px solid #CCCCCC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s ease-in-out;
+    /* ย้ายมาไว้ที่นี่เพื่อให้มี transition ตอน hover ออกด้วย */
+}
+
+/* อนิเมชันไอคอนค้นหา */
+.icon:hover {
+    animation: rotate-back 1s ease forwards;
+}
+
+.card h1 {
+    font-size: 24px;
+    font-weight: 200;
+    margin-bottom: 2px;
+
+}
+
+.card h2 {
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: -2px;
+
+}
+
+.card h3 {
+    font-size: 18px;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+.card h4 {
+    font-size: 32px;
+    font-weight: 200;
+    /* margin-top: -5px; */
+    margin-bottom: -5px;
+    color: #CCCCCC;
+    /* เปลี่ยนสีข้อความ */
+}
+
+.card h1,
+.card h2,
+.card h3,
+.card h4 {
+    text-align: center;
+    /* จัดกลางข้อความ */
+    color: #FFFFFF;
+    /* เปลี่ยนสีข้อความ */
+}
+
+.card img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    /* 🔥 ครอปแทนการบีบ */
+    object-position: center center;
+    /* 🔍 ครอปตรงกลางแนวตั้ง */
+    filter: drop-shadow(4px 4px 4px rgba(255, 255, 255, 0.50));
+    /* เงา */
+    margin-top: 15px;
+}
+
+.card img:hover {
+    animation: shake 1s ease forwards;
+}
+
+/* สไตล์รายละเอียดสภาพอากาศ */
+.detils-container {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    /* กำหนดสัดส่วนคอลัมน์ */
+    grid-template-rows: auto auto;
+    row-gap: 5px;
+    column-gap: 10px;
+    text-align: left;
+    width: 150px;
+}
+
+.div1 {
+    grid-area: 1 / 1 / 3 / 2;
+    width: 50px;
+    height: 50px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div1 img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    margin: 0;
+    filter: drop-shadow(2px 2px 3px rgb(162, 162, 162));
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.div2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    text-align: left;
+    grid-area: 1 / 2 / 2 / 3;
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+
+.div3 {
+    grid-area: 2 / 2 / 3 / 3;
+    font-size: 16px;
+}
+
+.div2,
+.div3 {
+    font-weight: 200;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Keyframes อนิเมชัน */
+@keyframes rotate-back {
+    0% {
+        transform: scale(1.0) rotate(0deg);
+    }
+
+    25% {
+        transform: scale(1.1) rotate(15deg);
+    }
+
+    50% {
+        transform: scale(1.1) rotate(15deg);
+    }
+
+    100% {
+        transform: scale(1.0) rotate(0deg);
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: scale(1.0) rotate(0deg);
+    }
+
+    25% {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    50% {
+        transform: scale(1.1) rotate(-5deg);
+        /* hold at 15deg */
+    }
+
+    100% {
+        transform: scale(1.0) rotate(0deg);
+    }
+}

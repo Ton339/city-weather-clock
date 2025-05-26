@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ตั้งค่าพื้นฐานของหน้าเว็บ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather card</title>
+
+    <!-- ลิงก์ไปยังไฟล์สไตล์และสคริปต์ -->
+    <link rel="stylesheet" href="main.css">
+    <script src="https://unpkg.com/lucide@latest"></script> <!-- ใช้ไอคอนจาก Lucide -->
+</head>
+
+<body>
+    <!-- องค์ประกอบหลักของการ์ดแสดงผล -->
+    <main class="card">
+        <!-- ส่วนค้นหาเมือง -->
+        <section class="search-tab">
+            <div class="input-wrapper" role="search">
+                <div class="input-container">
+                    <!-- Input field สำหรับค้นหาเมือง -->
+                    <input type="text" id="search" class="search-input" required aria-label="City name" placeholder=" ">
+                    <!-- ป้ายชื่อแบบลอยได้ -->
+                    <label for="search" class="floating-label">City name ex. newyork</label>
+                </div>
+                <!-- ปุ่มค้นหา -->
+                <button type="button" class="icon search-button" aria-label="Search city">
+                    <i data-lucide="search" style="color: #fff;"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ภาพแสดงสถานะอากาศ -->
+        <figure>
+            <img class="weather-icon" src="assets/clear sky.png" alt="Weather illustration">
+        </figure>
+
+        <!-- ส่วนหัวข้อแสดงชื่อเมืองและเวลา -->
+        <header style="display: flex; gap: 5px; justify-content: center; align-items: center; margin-bottom: 5px;">
+            <div style="display: flex; flex-direction: column;">
+                <div style="display: flex; gap: 5px; justify-content: center; align-items: center;">
+                    <i data-lucide="map-pin" style="color: #ffffff; stroke-width: 2;"></i>
+                    <h1 id="city">Newyork</h1> <!-- แสดงชื่อเมือง -->
+                </div>
+                <h4 id="local-time">00:00:00</h4> <!-- แสดงเวลาท้องถิ่น -->
+            </div>
+        </header>
+
+        <!-- ส่วนแสดงอุณหภูมิและคำอธิบายสภาพอากาศ -->
+        <section>
+            <h2 id="temp">25°C</h2> <!-- อุณหภูมิปัจจุบัน -->
+            <h3 id="description">moderate rain</h3> <!-- คำอธิบายสภาพอากาศ -->
+        </section>
+
+        <!-- ส่วนรายละเอียดเพิ่มเติมแบบกริด -->
+        <div style="display:flex; flex-direction: column; gap:5px; border-top: 2px solid #ffffff75; padding-top: 10px;">
+            <!-- แถวแรก: ความเร็วลมและความชื้น -->
+            <section style="display: flex; gap: 10px;">
+                <article class="detils-container">
+                    <div class="div1"><img src="assets/Wind icon.png" alt="Wind icon"></div>
+                    <div class="div2">wind speed</div>
+                    <div class="div3" id="wind-speed">00.0 km/h</div> <!-- ความเร็วลม -->
+                </article>
+                <article class="detils-container">
+                    <div class="div1"><img src="assets/Humidity icon.png" alt="Humidity icon"></div>
+                    <div class="div2">humidity</div>
+                    <div class="div3" id="humidity">00%</div> <!-- ความชื้น -->
+                </article>
+            </section>
+
+            <!-- แถวสอง: เวลาพระอาทิตย์ขึ้นและตก -->
+            <section style="display: flex; gap: 10px;">
+                <article class="detils-container">
+                    <div class="div1"><img src="assets/Sunrise icon.png" alt="Sunrise icon"></div>
+                    <div class="div2">sunrise</div>
+                    <div class="div3" id="sunrise">06:30</div> <!-- พระอาทิตย์ขึ้น -->
+                </article>
+                <article class="detils-container">
+                    <div class="div1"><img src="assets/Sunset icon.png" alt="Sunset icon"></div>
+                    <div class="div2">sunset</div>
+                    <div class="div3" id="sunset">06:30</div> <!-- พระอาทิตย์ตก -->
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <!-- สคริปต์จัดการการทำงาน -->
+    <script>
+        lucide.createIcons(); // เรียกใช้ Lucide Icons
+    </script>
+    <script src="app.js"></script> <!-- ลิงก์ไปยังไฟล์ JavaScript -->
+</body>
+
+</html>
